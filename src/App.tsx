@@ -1,8 +1,8 @@
 // src/App.tsx
 import React from 'react';
-import DataFetcher from './components/DataFetcher';
-import ReduxCounter from './components/ReduxCounter';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
 
 const App = () => {
   return (
@@ -25,18 +25,7 @@ const App = () => {
             boxShadow: 3, // Add a slight shadow
           }}
         >
-          {/* Content inside the central div */}
-          <Typography variant="h4" component="h1" gutterBottom>
-            Accessible Content Area
-          </Typography>
-          <Typography>
-            This central box has **equal padding on the left and right** (which adjusts
-            responsively for different screen sizes) and **no vertical padding** (pt: 0, pb: 0)
-            relative to the outer container. The **light box** against the **dark background**
-            ensures excellent contrast!
-          </Typography>
-          <DataFetcher />
-          <ReduxCounter />
+
         </Box>
   );
 };

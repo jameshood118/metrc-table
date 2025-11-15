@@ -9,7 +9,11 @@ import { ThemeProvider } from '@mui/material/styles';
 import customTheme from './theme.ts'; // MUI Theme
 import { Container} from '@mui/material';
 import { Provider } from 'react-redux';
-import { store } from './state/store.ts'; // Redux Store
+import { store } from './state/store.ts';
+import { ModuleRegistry } from 'ag-grid-community';
+import { AllCommunityModule } from 'ag-grid-community';// Redux Store
+
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -25,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         sx={{
           bgcolor: 'background.default', // Use the dark background color
           minHeight: '100vh', // Ensures the background covers the whole viewport
+          minWidth: '100vw',
           // No top/bottom padding is applied to this outer Container by default, 
           // allowing the inner Box to control the layout.
         }}
