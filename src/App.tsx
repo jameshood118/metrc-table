@@ -1,10 +1,25 @@
 // src/App.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Box } from '@mui/material';
-import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
+import { AgGridReact } from 'ag-grid-react';
+import type { ColDef } from 'ag-grid-community';
 
 const App = () => {
+
+    // 1. Define Data (rowData)
+  const [rowData] = useState([
+    { make: 'Tesla', model: 'Model Y', price: 64950 },
+    // ... more data
+  ]);
+
+  // 2. Define Columns (colDefs)
+  const [colDefs] = useState<ColDef[]>([
+    { field: 'make' },
+    { field: 'model' },
+    { field: 'price' },
+  ]);
+
+  
   return (
         <Box
           sx={{
@@ -25,6 +40,13 @@ const App = () => {
             boxShadow: 3, // Add a slight shadow
           }}
         >
+          // Set a height/width and apply the theme class
+          <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+            <AgGridReact
+              rowData={rowData}
+              columnDefs={colDefs}
+            />
+          </div>
 
         </Box>
   );

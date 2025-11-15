@@ -12,8 +12,16 @@ import { Provider } from 'react-redux';
 import { store } from './state/store.ts';
 import { ModuleRegistry } from 'ag-grid-community';
 import { AllCommunityModule } from 'ag-grid-community';// Redux Store
-
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
 ModuleRegistry.registerModules([AllCommunityModule]);
+
+import { provideGlobalGridOptions } from 'ag-grid-community';
+
+// Mark all grids as using legacy themes
+provideGlobalGridOptions({
+    theme: "legacy",
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

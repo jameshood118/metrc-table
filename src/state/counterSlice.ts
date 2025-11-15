@@ -1,7 +1,7 @@
 // src/state/counterSlice.ts
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface strain {
+export interface strain {
     Name: string,
     Testing: string,
     THC: number,
