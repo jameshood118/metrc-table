@@ -1,4 +1,4 @@
-export interface strain {
+export interface Strain {
     Id: number,
     Name: string,
     Testing: string,
@@ -10,6 +10,7 @@ export interface strain {
 }
 
 export interface StrainDataState {
-  data: [strain];
-  status: 'loaded';
+  items: Strain[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
 }

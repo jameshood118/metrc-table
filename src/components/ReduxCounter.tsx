@@ -1,7 +1,7 @@
 // src/components/ReduxCounter.tsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, incrementByAmount } from '../state/counterSlice';
+import { increment, decrement, incrementByAmount } from '../state/strainSlice';
 import type { RootState, AppDispatch } from '../state/store';
 import { Button, Typography, Paper, Grid } from '@mui/material';
 

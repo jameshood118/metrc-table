@@ -1,6 +1,6 @@
 // src/state/store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
+import counterReducer from './strainSlice';
 
 export const store = configureStore({
   reducer: {
