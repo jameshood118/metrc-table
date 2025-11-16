@@ -35,12 +35,20 @@ export const strainSlice = createSlice({
     },
     handleArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
+
+      console.log(state)
+      console.log(idToArchive)
+
       state.items = state.items.map((strain) =>
         strain.Id === idToArchive ? { ...strain, IsArchived: true } : strain
       );
+      console.log(state.items)
     },
     handleUnArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
+
+      console.log(state)
+      console.log(idToArchive)
       state.items = state.items.map((strain) =>
         strain.Id === idToArchive ? { ...strain, IsArchived: false } : strain
       );
