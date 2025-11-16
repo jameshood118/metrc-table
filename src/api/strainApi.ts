@@ -1,12 +1,12 @@
 import type { strain, StrainDataState } from '../models/strains.ts';
 
-const JSON_URL = './data.json';
+const JSON_URL = './data/strains.json';
 
 /**
  * Loads the local JSON data using async/await syntax.
  * @returns A promise that resolves to an array of DataItem.
  */
-async function loadData(): Promise<strain[]> {
+export async function loadData(): Promise<strain[]> {
   try {
     // AWAIT 1: Wait for the network request to complete
     const response = await fetch(JSON_URL);
