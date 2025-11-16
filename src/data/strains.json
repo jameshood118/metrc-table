@@ -5,7 +5,8 @@
     "THC": 0.17,
     "CBD": 0.23,
     "Genetics": "Hybrid",
-    "Units": "126"
+    "Units": "126",
+    "IsArchived": false
   },
   {
     "Name": "Red Dream",
@@ -13,7 +14,8 @@
     "THC": 0.17,
     "CBD": 0.026,
     "Genetics": "Hybrid",
-    "Units": "124"
+    "Units": "124",
+    "IsArchived": false
   },
   {
     "Name": "Zkz",
@@ -21,7 +23,8 @@
     "THC": null,
     "CBD": null,
     "Genetics": "Hybrid",
-    "Units": "122"
+    "Units": "122",
+    "IsArchived": false
   },
   {
     "Name": "GG#4 Red Kush",
@@ -29,7 +32,8 @@
     "THC": null,
     "CBD": null,
     "Genetics": "Hybrid",
-    "Units": "121"
+    "Units": "121",
+    "IsArchived": false
   },
   {
     "Name": "Golden Goat",
@@ -37,7 +41,8 @@
     "THC": 0.17,
     "CBD": 0.30,
     "Genetics": "Hybrid",
-    "Units": "119"
+    "Units": "119",
+    "IsArchived": false
   },
   {
     "Name": "Jax\u0027s Secret",
@@ -45,7 +50,8 @@
     "THC": null,
     "CBD": null,
     "Genetics": "Hybrid",
-    "Units": "115"
+    "Units": "115",
+    "IsArchived": false
   },
   {
     "Name": "Maui Bud",
@@ -53,7 +59,8 @@
     "THC": 0.19,
     "CBD": 0.50,
     "Genetics": "Hybrid",
-    "Units": "113"
+    "Units": "113",
+    "IsArchived": false
   },
   {
     "Name": "Purple Kush",
@@ -61,7 +68,8 @@
     "THC": 0.23,
     "CBD": 0.019,
     "Genetics": "Hybrid",
-    "Units": "112"
+    "Units": "112",
+    "IsArchived": false
   },
   {
     "Name": "Spring Hill Kush",
@@ -69,7 +77,8 @@
     "THC": 0.1856,
     "CBD": 0.1073,
     "Genetics": "Hybrid",
-    "Units": "110"
+    "Units": "110",
+    "IsArchived": false
   },
    {
     "Name": "Red Dream - Copy - Copy",
@@ -77,7 +86,8 @@
     "THC": 0.17,
     "CBD": 0.026,
     "Genetics": "Hybrid",
-    "Units": "124"
+    "Units": "124",
+    "IsArchived": true
   },
   {
     "Name": "Red Dream - Copy",
@@ -85,7 +95,8 @@
     "THC": 0.17,
     "CBD": 0.026,
     "Genetics": "Hybrid",
-    "Units": "124"
+    "Units": "124",
+    "IsArchived": true
   },
   {
     "Name": "Super Strain",
@@ -93,7 +104,8 @@
     "THC": 5,
     "CBD": null,
     "Genetics": "Indica",
-    "Units": "105"
+    "Units": "105",
+    "IsArchived": true
   },
   {
     "Name": "TN Orange Dream",
@@ -101,6 +113,7 @@
     "THC": 0.18,
     "CBD": 0.11,
     "Genetics": "Hybrid",
-    "Units": "108"
+    "Units": "108",
+    "IsArchived": true
   }
 ]
