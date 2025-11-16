@@ -15,11 +15,11 @@ const [open, setOpen] = useState(false);
 const [selectedRow, setSelectedRow] = useState<Strain | null>(null);
 
 useEffect(() => {
-      if (showArchived === true) {
-      dispatch(loadStrains()); 
-      } else {
-      dispatch(filterArchivedStrains());
-      }
+    if (showArchived === true) {
+    dispatch(loadStrains()); 
+    } else {
+    dispatch(filterArchivedStrains());
+    }
 
   }, [dispatch, status, showArchived]);
 
