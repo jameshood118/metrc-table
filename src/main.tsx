@@ -35,7 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Container
         maxWidth="xl" // Use the full width for the outer container on large screens
         sx={{
-          bgcolor: 'background.default', // Use the dark background color
+          bgcolor: '#F7F7F7', // Use the dark background color
           minHeight: '100vh', // Ensures the background covers the whole viewport
           minWidth: '100vw',
           // No top/bottom padding is applied to this outer Container by default, 

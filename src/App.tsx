@@ -7,12 +7,22 @@ import type { ColDef, GridReadyEvent } from 'ag-grid-community';
 const App = () => {
 
   const onGridReady = useCallback((params: GridReadyEvent) => {
-    // You can call params.api.sizeColumnsToFit(); here if you want
+    params.api.sizeColumnsToFit();
   }, []);
 
     // 1. Define Data (rowData)
   const [rowData] = useState([
     {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+
     // ... more data
   ]);
 
@@ -35,7 +45,7 @@ const App = () => {
         textAlign: 'center',
         display: 'flex', 
         alignItems: 'center',
-        borderRight: '1px solid rgba(59, 102, 145, 1)',
+        borderRight: '1px solid #CCC',
       },
       headerClass: 'center-header-text',
       sortable: true,
@@ -45,7 +55,7 @@ const App = () => {
   );
  
   const gridStyles = {
-    height: 400, width: "100%",
+    height: '65vh', width: "100%",
     '.agThemeAlpine': {
       '--ag-cell-horizontal-border': 'var(--ag-row-border-width) var(--ag-row-border-style) var(--ag-row-border-color)--ag-header-column-separator-display: block',
     },
