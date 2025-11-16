@@ -9,8 +9,3 @@ export interface Strain {
     IsArchived: boolean
 }
 
-export interface StrainDataState {
-  items: Strain[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-}

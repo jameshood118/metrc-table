@@ -1,10 +1,10 @@
 // src/state/store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './strainSlice';
+import strainReducer from './strainSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    strain: strainReducer,
   },
 });
 

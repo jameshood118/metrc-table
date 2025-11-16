@@ -1,12 +1,18 @@
 // src/state/counterSlice.ts
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import type { PayloadAction} from '@reduxjs/toolkit';
-import type { Strain, StrainDataState } from '../types/strains.ts';
+import type { Strain } from '../types/strains.ts';
 import { fetchItemsFromApi } from '../api/strainApi.ts';
 
 
 
-const initialState: StrainDataState = {
+interface StrainState {
+  items: Strain[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
+
+const initialState: StrainState = {
   items: [],
   status: 'idle',
   error: null,

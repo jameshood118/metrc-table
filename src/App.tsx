@@ -1,10 +1,23 @@
 // src/App.tsx
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
 import type { ColDef, GridReadyEvent } from 'ag-grid-community';
+import { useAppDispatch, useAppSelector } from './hooks/hooks'; // Use your custom hooks
+import { fetchItems } from './state/strainSlice';
+
 
 const App = () => {
+
+const dispatch = useAppDispatch();
+  const { items, status, error } = useAppSelector((state) => state.strain);
+
+  useEffect(() => {
+    // Dispatch the thunk to load the data when the component mounts
+    if (status === 'idle') {
+      dispatch(fetchItems());
+    }
+  }, [dispatch, status]);
 
   const onGridReady = useCallback((params: GridReadyEvent) => {
     params.api.sizeColumnsToFit();
