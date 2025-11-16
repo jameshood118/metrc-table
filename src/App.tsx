@@ -55,6 +55,7 @@ const handleArchive = ()=> {
   if (id !== undefined) {
     dispatch(handleArchiveStrain(id));
     setOpen(false);
+    setSelectedRow(null);
   }
 }
 const handleUnArchive = ()=> {
@@ -62,6 +63,7 @@ const handleUnArchive = ()=> {
   if (id !== undefined) {
     dispatch(handleUnArchiveStrain(id));
     setOpen(false);
+    setSelectedRow(null);
   }
 }
 

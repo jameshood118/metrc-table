@@ -28,28 +28,30 @@ export const strainSlice = createSlice({
       state.items = localData as Strain[];
       state.status = 'succeeded';
     },
-    // 💡 NEW REDUCER: Filters out items where isArchived is true
     filterArchivedStrains: (state) => {
-      // Filter the data from the immutable 'allItems' source and update 'items'
       state.items = state.items.filter((strain) => !strain.IsArchived);
     },
     handleArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
 
-      console.log(idToArchive)
+      const strainToUpdate = state.items.find((strain) => strain.Id === idToArchive);
+      
+      if (strainToUpdate) {
+        strainToUpdate.IsArchived = true; 
+      }
+      console.log(`Archived strain with ID: ${idToArchive}`);
 
-      state.items = state.items.map((strain) =>
-        strain.Id === idToArchive ? { ...strain, IsArchived: true } : strain
-      );
-      console.log(state.items)
     },
     handleUnArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
 
-      console.log(idToArchive)
-      state.items = state.items.map((strain) =>
-        strain.Id === idToArchive ? { ...strain, IsArchived: false } : strain
-      );
+      const strainToUpdate = state.items.find((strain) => strain.Id === idToArchive);
+      
+      if (strainToUpdate) {
+        strainToUpdate.IsArchived = false; 
+      }
+
+      console.log(`UnArchived strain with ID: ${idToArchive}`);
     }
   },
   // Use extraReducers to handle the promise lifecycle of the thunk

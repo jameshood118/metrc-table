@@ -10,7 +10,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 2,
     "Name": "Red Dream",
     "Testing": "None",
     "THC": 0.17,
@@ -20,7 +20,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 3,
     "Name": "Zkz",
     "Testing": "None",
     "THC": null,
@@ -30,7 +30,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 4,
     "Name": "GG#4 Red Kush",
     "Testing": "None",
     "THC": null,
@@ -40,7 +40,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 5,
     "Name": "Golden Goat",
     "Testing": "TestPassed",
     "THC": 0.17,
@@ -50,7 +50,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 6,
     "Name": "Jax's Secret",
     "Testing": "None",
     "THC": null,
@@ -60,7 +60,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 7,
     "Name": "Maui Bud",
     "Testing": "TestPassed",
     "THC": 0.19,
@@ -70,7 +70,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 8,
     "Name": "Purple Kush",
     "Testing": "TestPassed",
     "THC": 0.23,
@@ -80,7 +80,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 9,
     "Name": "Spring Hill Kush",
     "Testing": "None",
     "THC": 0.1856,
@@ -90,7 +90,7 @@
     "IsArchived": false
   },
   {
-    "Id": 1,
+    "Id": 10,
     "Name": "Red Dream - Copy - Copy",
     "Testing": "None",
     "THC": 0.17,
@@ -100,7 +100,7 @@
     "IsArchived": true
   },
   {
-    "Id": 1,
+    "Id": 11,
     "Name": "Red Dream - Copy",
     "Testing": "None",
     "THC": 0.17,
@@ -110,7 +110,7 @@
     "IsArchived": true
   },
   {
-    "Id": 1,
+    "Id": 12,
     "Name": "Super Strain",
     "Testing": "None",
     "THC": 5,
@@ -120,7 +120,7 @@
     "IsArchived": true
   },
   {
-    "Id": 1,
+    "Id": 13,
     "Name": "TN Orange Dream",
     "Testing": "None",
     "THC": 0.18,
