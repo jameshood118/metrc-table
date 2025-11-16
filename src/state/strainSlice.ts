@@ -33,11 +33,23 @@ export const strainSlice = createSlice({
       // Filter the data from the immutable 'allItems' source and update 'items'
       state.items = state.items.filter((strain) => !strain.IsArchived);
     },
+    handleArchiveStrain: (state, action) => {
+      const idToArchive = action.payload;
+      state.items = state.items.map((strain) =>
+        strain.Id === idToArchive ? { ...strain, IsArchived: true } : strain
+      );
+    },
+    handleUnArchiveStrain: (state, action) => {
+      const idToArchive = action.payload;
+      state.items = state.items.map((strain) =>
+        strain.Id === idToArchive ? { ...strain, IsArchived: false } : strain
+      );
+    }
   },
   // Use extraReducers to handle the promise lifecycle of the thunk
   // extraReducers: (builder) => { }
 });
 
-export const { loadStrains, filterArchivedStrains } = strainSlice.actions;
+export const { loadStrains, filterArchivedStrains, handleArchiveStrain, handleUnArchiveStrain } = strainSlice.actions;
 
 export default strainSlice.reducer;

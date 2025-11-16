@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
 import type { ColDef, GridReadyEvent, RowSelectedEvent } from 'ag-grid-community';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
-import { loadStrains, filterArchivedStrains } from './state/strainSlice'; // Use your custom hooks
+import { loadStrains, filterArchivedStrains, handleArchiveStrain, handleUnArchiveStrain } from './state/strainSlice'; // Use your custom hooks
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Grid } from '@mui/material';
 import type {Strain} from './types/strains';
 const App = () => {
@@ -51,6 +51,7 @@ const handleClose = () => {
 };
 
 const handleArchive = ()=> {}
+const handleUnArchive = ()=> {}
 
 interface strainDialogProps {
   open: boolean;
@@ -89,7 +90,7 @@ const ModalView = (props: strainDialogProps) => {
       </Grid>
     </DialogContent>
     <DialogActions>
-        <Button onClick={handleArchive}>Archive</Button>
+      {props.selectedStrain?.IsArchived ? <Button onClick={handleUnArchive}>Unarchive</Button> : <Button onClick={handleArchive}>Archive</Button>}
         <Button onClick={handleClose}>Close</Button>
     </DialogActions>
 </Dialog>
