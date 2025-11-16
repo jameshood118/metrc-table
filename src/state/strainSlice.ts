@@ -39,6 +39,7 @@ export const strainSlice = createSlice({
       if (strainToUpdate) {
         strainToUpdate.IsArchived = true; 
       }
+
       console.log(`Archived strain with ID: ${idToArchive}`);
 
     },
