@@ -1,0 +1,106 @@
+[
+  {
+    "Name": "AK-47",
+    "Testing": "TestPassed",
+    "THC": 0.17,
+    "CBD": 0.23,
+    "Genetics": "Hybrid",
+    "Units": "126"
+  },
+  {
+    "Name": "Red Dream",
+    "Testing": "None",
+    "THC": 0.17,
+    "CBD": 0.026,
+    "Genetics": "Hybrid",
+    "Units": "124"
+  },
+  {
+    "Name": "Zkz",
+    "Testing": "None",
+    "THC": null,
+    "CBD": null,
+    "Genetics": "Hybrid",
+    "Units": "122"
+  },
+  {
+    "Name": "GG#4 Red Kush",
+    "Testing": "None",
+    "THC": null,
+    "CBD": null,
+    "Genetics": "Hybrid",
+    "Units": "121"
+  },
+  {
+    "Name": "Golden Goat",
+    "Testing": "TestPassed",
+    "THC": 0.17,
+    "CBD": 0.30,
+    "Genetics": "Hybrid",
+    "Units": "119"
+  },
+  {
+    "Name": "Jax\u0027s Secret",
+    "Testing": "None",
+    "THC": null,
+    "CBD": null,
+    "Genetics": "Hybrid",
+    "Units": "115"
+  },
+  {
+    "Name": "Maui Bud",
+    "Testing": "TestPassed",
+    "THC": 0.19,
+    "CBD": 0.50,
+    "Genetics": "Hybrid",
+    "Units": "113"
+  },
+  {
+    "Name": "Purple Kush",
+    "Testing": "TestPassed",
+    "THC": 0.23,
+    "CBD": 0.019,
+    "Genetics": "Hybrid",
+    "Units": "112"
+  },
+  {
+    "Name": "Spring Hill Kush",
+    "Testing": "None",
+    "THC": 0.1856,
+    "CBD": 0.1073,
+    "Genetics": "Hybrid",
+    "Units": "110"
+  },
+   {
+    "Name": "Red Dream - Copy - Copy",
+    "Testing": "None",
+    "THC": 0.17,
+    "CBD": 0.026,
+    "Genetics": "Hybrid",
+    "Units": "124"
+  },
+  {
+    "Name": "Red Dream - Copy",
+    "Testing": "None",
+    "THC": 0.17,
+    "CBD": 0.026,
+    "Genetics": "Hybrid",
+    "Units": "124"
+  },
+  {
+    "Name": "Super Strain",
+    "Testing": "None",
+    "THC": 5,
+    "CBD": null,
+    "Genetics": "Indica",
+    "Units": "105"
+  },
+  {
+    "Name": "TN Orange Dream",
+    "Testing": "None",
+    "THC": 0.18,
+    "CBD": 0.11,
+    "Genetics": "Hybrid",
+    "Units": "108"
+  }
+]
