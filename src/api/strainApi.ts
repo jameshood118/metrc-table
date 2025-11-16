@@ -6,7 +6,7 @@ const JSON_URL = './data/strains.json';
  * Loads the local JSON data using async/await syntax.
  * @returns A promise that resolves to an array of DataItem.
  */
-export async function loadData(): Promise<strain[]> {
+export async function fetchData() {
   try {
     // AWAIT 1: Wait for the network request to complete
     const response = await fetch(JSON_URL);
