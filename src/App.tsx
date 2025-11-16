@@ -10,7 +10,7 @@ import type {Strain} from './types/strains';
 const App = () => {
 const dispatch = useAppDispatch();
 const { items, status } = useAppSelector((state) => state.strain);
-const [showArchived, setShowArchived] = useState<boolean>(true);
+const [showArchived, setShowArchived] = useState<boolean>(false);
 const [open, setOpen] = useState(false);
 const [selectedRow, setSelectedRow] = useState<Strain | null>(null);
 
@@ -24,11 +24,11 @@ useEffect(() => {
   }, [dispatch, status, showArchived]);
 
   const handleFilter = () => {
-    setShowArchived(false)
+    setShowArchived(true)
   };
 
   const handleReset = () => {
-    setShowArchived(true)
+    setShowArchived(false)
   }
 
 const onGridReady = useCallback((params: GridReadyEvent) => {
@@ -50,8 +50,20 @@ const handleClose = () => {
     setSelectedRow(null);
 };
 
-const handleArchive = ()=> {}
-const handleUnArchive = ()=> {}
+const handleArchive = ()=> {
+  const id = selectedRow?.Id;
+  if (id !== undefined) {
+    dispatch(handleArchiveStrain(id));
+    setOpen(false);
+  }
+}
+const handleUnArchive = ()=> {
+  const id = selectedRow?.Id;
+  if (id !== undefined) {
+    dispatch(handleUnArchiveStrain(id));
+    setOpen(false);
+  }
+}
 
 interface strainDialogProps {
   open: boolean;
@@ -153,7 +165,7 @@ const ModalView = (props: strainDialogProps) => {
           }}
         >
           <h1>Metrc Strain Table</h1>
-          <Button variant="contained" onClick={handleFilter} sx={{m:1}}>Hide Archived Strains</Button>
+          <Button variant="contained" onClick={handleFilter} sx={{m:1}}>Show Archived Strains</Button>
           <Button variant="contained" onClick={handleReset} sx={{m:1}}>Show All Strains</Button>
           <div className="ag-theme-alpine" style={gridStyles}>
             <ModalView selectedStrain={selectedRow} open={open} onClose={handleClose}/>
