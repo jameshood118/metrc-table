@@ -1,22 +1,17 @@
 // src/state/counterSlice.ts
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { strain, StrainDataState } from '../models/strains.ts';
 
-export interface strain {
-    Name: string,
-    Testing: string,
-    THC: number,
-    CBD: number,
-    Genetics: string,
-    Units: string
-}
 
 const initialState: strain =   {
+  Id: 1,
     "Name": "AK-47",
     "Testing": "TestPassed",
     "THC": 0.17,
     "CBD": 0.23,
     "Genetics": "Hybrid",
-    "Units": "126"
+    "Units": "126",
+    "IsArchived": false
   };
 
 const counterSlice = createSlice({
