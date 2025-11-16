@@ -34,45 +34,44 @@ export const strainSlice = createSlice({
     handleArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
 
-      // map returns a *new* array.
+
       const updatedItems = state.items.map((strain) => {
-        // If the ID matches, return a new object with the update
+  // Check if the current strain matches the ID to archive
         if (strain.Id === idToArchive) {
+        console.log(`Archived strain with ID: ${idToArchive}`);
           return {
-            ...strain, // Copy all existing properties
-            IsArchived: true, // Apply the specific update
+            ...strain, 
+            IsArchived: true, 
           };
         }
-        // Otherwise, return the original, unchanged object
         return strain;
       });
-      state.items = updatedItems;
+      // Update the state with the modified items array
+        state.items = updatedItems;
 
-      console.log(`Archived strain with ID: ${idToArchive}`);
 
     },
     handleUnArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
 
-      // map returns a *new* array.
       const updatedItems = state.items.map((strain) => {
-        // If the ID matches, return a new object with the update
+        // Check if the current strain matches the ID to unarchive
         if (strain.Id === idToArchive) {
           return {
-            ...strain, // Copy all existing properties
-            IsArchived: false, // Apply the specific update
+            ...strain,
+            IsArchived: false, 
           };
         }
-        // Otherwise, return the original, unchanged object
+        
         return strain;
       });
+      // Update the state with the modified items array
       state.items = updatedItems;
 
       console.log(`UnArchived strain with ID: ${idToArchive}`);
     }
   },
-  // Use extraReducers to handle the promise lifecycle of the thunk
-  // extraReducers: (builder) => { }
+
 });
 
 export const { loadStrains, filterArchivedStrains, handleArchiveStrain, handleUnArchiveStrain } = strainSlice.actions;

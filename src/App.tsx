@@ -36,7 +36,7 @@ const onGridReady = useCallback((params: GridReadyEvent) => {
 }, []);
 
 const onRowSelected = useCallback((event: RowSelectedEvent) => {
-    // 1. Check if the row was selected (not deselected) and has data
+        // 1. Ensure a row is selected
     if (event.node.isSelected() && event.node.data) {
         // 2. Data is already typed correctly
         setSelectedRow(event.node.data); 
@@ -46,6 +46,7 @@ const onRowSelected = useCallback((event: RowSelectedEvent) => {
 }, []);
 
 const handleClose = () => {
+  // Close the dialog
     setOpen(false);
     setSelectedRow(null);
 };
