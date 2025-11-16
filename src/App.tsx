@@ -2,44 +2,101 @@
 import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import type { ColDef, GridReadyEvent } from 'ag-grid-community';
-import { useAppDispatch, useAppSelector } from './hooks/hooks'; // Use your custom hooks
-import { fetchItems } from './state/strainSlice';
-
-
+import type { ColDef, GridReadyEvent, RowSelectedEvent } from 'ag-grid-community';
+import { useAppDispatch, useAppSelector } from './hooks/hooks';
+import { loadStrains, filterArchivedStrains } from './state/strainSlice'; // Use your custom hooks
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Grid } from '@mui/material';
+import type {Strain} from './types/strains';
 const App = () => {
-
 const dispatch = useAppDispatch();
-  const { items, status, error } = useAppSelector((state) => state.strain);
+const { items, status } = useAppSelector((state) => state.strain);
+const [showArchived, setShowArchived] = useState<boolean>(true);
+const [open, setOpen] = useState(false);
+const [selectedRow, setSelectedRow] = useState<Strain | null>(null);
 
-  useEffect(() => {
-    // Dispatch the thunk to load the data when the component mounts
-    if (status === 'idle') {
-      dispatch(fetchItems());
+useEffect(() => {
+      if (showArchived === true) {
+      dispatch(loadStrains()); 
+      } else {
+      dispatch(filterArchivedStrains());
+      }
+
+  }, [dispatch, status, showArchived]);
+
+  const handleFilter = () => {
+    setShowArchived(false)
+  };
+
+  const handleReset = () => {
+    setShowArchived(true)
+  }
+
+const onGridReady = useCallback((params: GridReadyEvent) => {
+  params.api.sizeColumnsToFit();
+}, []);
+
+const onRowSelected = useCallback((event: RowSelectedEvent) => {
+    // 1. Check if the row was selected (not deselected) and has data
+    if (event.node.isSelected() && event.node.data) {
+        // 2. Data is already typed correctly
+        setSelectedRow(event.node.data); 
+        // 3. Open the Material UI Dialog
+        setOpen(true);
     }
-  }, [dispatch, status]);
+}, []);
 
-  const onGridReady = useCallback((params: GridReadyEvent) => {
-    params.api.sizeColumnsToFit();
-  }, []);
+const handleClose = () => {
+    setOpen(false);
+    setSelectedRow(null);
+};
 
-    // 1. Define Data (rowData)
-  const [rowData] = useState([
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
-    {Name: "Golden Goat", Testing: "TestPassed", THC: 0.17, CBD: 0.30, Genetics: "Hybrid", Units: "119" },
+const handleArchive = ()=> {}
 
-    // ... more data
-  ]);
+interface strainDialogProps {
+  open: boolean;
+  selectedStrain: Strain | null;
+  onClose: (value: string) => void;
+}
 
-  // 2. Define Columns (colDefs)
+const ModalView = (props: strainDialogProps) => {
+
+  return (
+    <Dialog
+    open={open}
+    onClose={handleClose}
+    maxWidth="sm"
+    fullWidth
+>
+
+    <DialogTitle sx={{paddingBottom: 1}}>Details for: {props.selectedStrain?.Name}</DialogTitle>
+    <DialogContent>
+      <Grid container spacing={2} sx={{paddingTop: 2}}>
+          <Grid>
+            <TextField id="outlined-basic" label="Testing" variant="outlined" value={props.selectedStrain?.Testing} />
+          </Grid>
+          <Grid>
+            <TextField id="outlined-basic" label="THC" variant="outlined" value={props.selectedStrain?.THC} />
+          </Grid>
+          <Grid>
+            <TextField id="outlined-basic" label="CBD" variant="outlined" value={props.selectedStrain?.CBD} />
+          </Grid>
+          <Grid>
+            <TextField id="outlined-basic" label="Genetics" variant="outlined" value={props.selectedStrain?.Genetics} />
+          </Grid>
+          <Grid>
+            <TextField id="outlined-basic" label="Units" variant="outlined" value={props.selectedStrain?.Units} />
+          </Grid>
+      </Grid>
+    </DialogContent>
+    <DialogActions>
+        <Button onClick={handleArchive}>Archive</Button>
+        <Button onClick={handleClose}>Close</Button>
+    </DialogActions>
+</Dialog>
+  )
+}
+
+  // Define Columns (colDefs)
   const [colDefs] = useState<ColDef[]>([
     { field: 'Name' },
     { field: 'Testing' },
@@ -94,14 +151,20 @@ const dispatch = useAppDispatch();
             boxShadow: 3, // Add a slight shadow
           }}
         >
+          <h1>Metrc Strain Table</h1>
+          <Button variant="contained" onClick={handleFilter} sx={{m:1}}>Hide Archived Strains</Button>
+          <Button variant="contained" onClick={handleReset} sx={{m:1}}>Show All Strains</Button>
           <div className="ag-theme-alpine" style={gridStyles}>
+            <ModalView selectedStrain={selectedRow} open={open} onClose={handleClose}/>
             <AgGridReact
-              rowData={rowData}
+              rowData={items}
               columnDefs={colDefs}
               defaultColDef={defaultColDef}
               pagination={true}
               paginationPageSize={20}
               onGridReady={onGridReady}
+              rowSelection={'single'}
+              onRowSelected={onRowSelected} 
             />
           </div>
 
