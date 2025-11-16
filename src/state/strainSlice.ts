@@ -42,7 +42,6 @@ export const strainSlice = createSlice({
       state.items = state.items.map((strain) =>
         strain.Id === idToArchive ? { ...strain, IsArchived: true } : strain
       );
-      console.log(state.items)
     },
     handleUnArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
