@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
 import type { ColDef, GridReadyEvent, RowSelectedEvent } from 'ag-grid-community';
@@ -88,19 +88,19 @@ const ModalView = (props: strainDialogProps) => {
     <DialogContent>
       <Grid container spacing={2} sx={{paddingTop: 2}}>
           <Grid>
-            <TextField id="outlined-basic" label="Testing" variant="outlined" value={props.selectedStrain?.Testing} />
+            <TextField id="outlined-basic" label="Testing Status" variant="outlined" value={props.selectedStrain?.Testing ? props.selectedStrain?.Testing : ''} />
           </Grid>
           <Grid>
-            <TextField id="outlined-basic" label="THC" variant="outlined" value={props.selectedStrain?.THC} />
+            <TextField id="outlined-basic" label="THC" variant="outlined" value={props.selectedStrain?.THC ? props.selectedStrain?.THC : 0} />
           </Grid>
           <Grid>
-            <TextField id="outlined-basic" label="CBD" variant="outlined" value={props.selectedStrain?.CBD} />
+            <TextField id="outlined-basic" label="CBD" variant="outlined" value={props.selectedStrain?.CBD ? props.selectedStrain?.CBD : 0} />
           </Grid>
           <Grid>
-            <TextField id="outlined-basic" label="Genetics" variant="outlined" value={props.selectedStrain?.Genetics} />
+            <TextField id="outlined-basic" label="Genetics" variant="outlined" value={props.selectedStrain?.Genetics ? props.selectedStrain?.Genetics : ''} />
           </Grid>
           <Grid>
-            <TextField id="outlined-basic" label="Units" variant="outlined" value={props.selectedStrain?.Units} />
+            <TextField id="outlined-basic" label="Units" variant="outlined" value={props.selectedStrain?.Units ? props.selectedStrain?.Units : ''} />
           </Grid>
       </Grid>
     </DialogContent>

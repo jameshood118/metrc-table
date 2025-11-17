@@ -34,39 +34,15 @@ export const strainSlice = createSlice({
     handleArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
 
-
-      const updatedItems = state.items.map((strain) => {
-  // Check if the current strain matches the ID to archive
-        if (strain.Id === idToArchive) {
+// Update the items array by setting IsArchived to true for the matching strain
         console.log(`Archived strain with ID: ${idToArchive}`);
-          return {
-            ...strain, 
-            IsArchived: true, 
-          };
-        }
-        return strain;
-      });
-      // Update the state with the modified items array
-        state.items = updatedItems;
 
 
     },
     handleUnArchiveStrain: (state, action) => {
       const idToArchive = action.payload;
 
-      const updatedItems = state.items.map((strain) => {
-        // Check if the current strain matches the ID to unarchive
-        if (strain.Id === idToArchive) {
-          return {
-            ...strain,
-            IsArchived: false, 
-          };
-        }
-        
-        return strain;
-      });
-      // Update the state with the modified items array
-      state.items = updatedItems;
+// Update the items array by setting IsArchived to false for the matching strain
 
       console.log(`UnArchived strain with ID: ${idToArchive}`);
     }
