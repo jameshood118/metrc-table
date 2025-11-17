@@ -32,19 +32,25 @@ export const strainSlice = createSlice({
       state.items = state.items.filter((strain) => !strain.IsArchived);
     },
     handleArchiveStrain: (state, action) => {
-      const idToArchive = action.payload;
 
-//TODO Update the items array by setting IsArchived to true for the matching strain
-        console.log(`Archived strain with ID: ${idToArchive}`);
+      //redux shouldnt directly mutate state, we need to create a new array with the updated values
+      //however the proper method would be to use createAsyncThunk to handle this with an 
+      // api call to update the backend then pull data from backend again to update the store
+      const idToArchive = action.payload;
+      const archived = state.items.find((strain) => strain.Id === idToArchive);
+      //TODO Update the items array by setting IsArchived to true for the matching strain
+      console.log(`Archived strain with ID: ${idToArchive} - ` + archived);
 
 
     },
     handleUnArchiveStrain: (state, action) => {
+      //redux shouldnt directly mutate state, we need to create a new array with the updated values
+      //however the proper method would be to use createAsyncThunk to handle this with an 
+      // api call to update the backend then pull data from backend again to update the store
       const idToArchive = action.payload;
-
-//TODO Update the items array by setting IsArchived to false for the matching strain
-
-      console.log(`UnArchived strain with ID: ${idToArchive}`);
+      const unarchived = state.items.find((strain) => strain.Id === idToArchive);
+      //TODO Update the items array by setting IsArchived to false for the matching strain
+      console.log(`UnArchived strain with ID: ${idToArchive} - ` + unarchived);
     }
   },
 
