@@ -169,7 +169,7 @@ const ModalView = (props: strainDialogProps) => {
         >
           <h1>Metrc Strain Table</h1>
           <Button variant="contained" onClick={handleFilter} sx={{m:1}}>Show Archived Strains</Button>
-          <Button variant="contained" onClick={handleReset} sx={{m:1}}>Show All Strains</Button>
+          <Button variant="contained" onClick={handleReset} sx={{m:1}}>Show Active Strains</Button>
           <div className="ag-theme-alpine" style={gridStyles}>
             <ModalView selectedStrain={selectedRow} open={open} onClose={handleClose}/>
             <AgGridReact
