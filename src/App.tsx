@@ -105,8 +105,12 @@ const ModalView = (props: strainDialogProps) => {
       </Grid>
     </DialogContent>
     <DialogActions>
-      {props.selectedStrain?.IsArchived ? <Button onClick={handleUnArchive}>Unarchive</Button> : <Button onClick={handleArchive}>Archive</Button>}
-        <Button onClick={handleClose}>Close</Button>
+      {
+      props.selectedStrain?.IsArchived ? 
+      <Button onClick={handleUnArchive} aria-label='Unarchive'>Unarchive</Button> : 
+      <Button onClick={handleArchive} aria-label='Archive'>Archive</Button>
+      }
+      <Button onClick={handleClose} aria-label='Close'>Close</Button>
     </DialogActions>
 </Dialog>
   )
@@ -168,8 +172,8 @@ const ModalView = (props: strainDialogProps) => {
           }}
         >
           <h1>Metrc Strain Table</h1>
-          <Button variant="contained" onClick={handleFilter} sx={{m:1}}>Show All Strains</Button>
-          <Button variant="contained" onClick={handleReset} sx={{m:1}}>Show Active Strains</Button>
+          <Button variant="contained" onClick={handleFilter} sx={{m:1}} aria-label='Show All Strains'>Show All Strains</Button>
+          <Button variant="contained" onClick={handleReset} sx={{m:1}} aria-label='Show Active Strains'>Show Active Strains</Button>
           <div className="ag-theme-alpine" style={gridStyles}>
             <ModalView selectedStrain={selectedRow} open={open} onClose={handleClose}/>
             <AgGridReact
