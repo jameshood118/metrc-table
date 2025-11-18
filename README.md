@@ -4,72 +4,45 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+This project is a robust, modern frontend boilerplate configured using **Vite**. It includes the essential tools for a professional application:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **React 18** and **TypeScript** (TSX)
+* **Material UI (MUI)** for comprehensive UI components
+* **Redux Toolkit (RTK)** for predictable state management
+* **AG Grid React** for powerful, enterprise-grade data tables
+* **ESLint** configured for code quality and enforcing **ES6 Fat Arrow Components**
+* **Font Awesome (FA)** for external icons
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 1. 🏗️ Project Setup and Dependencies
 
-## Expanding the ESLint configuration
+Start by creating the project structure and installing all required packages.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Initialize Project and Install Libraries
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# 1. Create the project using Vite's React + TypeScript template
+npm create vite@latest react-full-boilerplate -- --template react-ts
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 2. Navigate into the new project directory
+cd react-full-boilerplate
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 3. Install base dependencies
+npm install
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# 4. Install Material UI (MUI) packages
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 5. Install Font Awesome (FA) packages
+npm install --save \
+  @fortawesome/fontawesome-svg-core \
+  @fortawesome/react-fontawesome \
+  @fortawesome/free-solid-svg-icons
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 6. Install Redux Toolkit (RTK) packages
+npm install @reduxjs/toolkit react-redux
+
+# 7. Install AG Grid React and CSS styles
+npm install ag-grid-react ag-grid-community
+
